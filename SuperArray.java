@@ -70,4 +70,11 @@ public class SuperArray{
       data[i] = data[i - 1];
     }data[index] = element;
   }
+  public String remove(int index){
+    String removed = data[index];
+    for(int i = index; i < size() - 1; i ++){
+      data[i] = data[i + 1];
+    }data[size() - 1] = null;
+    return(removed);
+  }
 }

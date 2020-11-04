@@ -7,11 +7,15 @@ public class SuperArray{
   }
 
   public int size(){
-    return(data.length);
+    return(size);
   }
 
   public boolean add(String element){
+    if(size() == data.length){
+      resize();
+    }
     data[size] = element;
+    size += 1;
     return(true);
   }
 
@@ -29,7 +33,7 @@ public class SuperArray{
     String[] newarr;
     newarr = new String[data.length + 10];
     for(int i = 0; i < data.length; i ++){
-      data[i] = newarr[i];
+      newarr[i] = data[i] ;
     }data = newarr;
   }
 }

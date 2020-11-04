@@ -52,4 +52,13 @@ public class SuperArray{
     }newstr = newstr + data[size - 1] + "]";
     return(newstr);
   }
+
+  public boolean contains(String s){
+    boolean there = false;
+    for(int i = 0; i < size(); i ++){
+      if(data[i].equals(s)){
+        there = true;
+      }
+    }return(there);
+  }
 }

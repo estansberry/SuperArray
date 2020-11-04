@@ -31,7 +31,7 @@ public class SuperArray{
 
   private void resize(){
     String[] newarr;
-    newarr = new String[data.length + 10];
+    newarr = new String[data.length * 2];
     for(int i = 0; i < data.length; i ++){
       newarr[i] = data[i] ;
     }data = newarr;
@@ -60,5 +60,14 @@ public class SuperArray{
         there = true;
       }
     }return(there);
+  }
+  public SuperArray(int initialcapacity){
+    data = new String[initialcapacity];
+  }
+  public void add(int index, String element){
+    add(element);
+    for(int i = size() - 1; i >= index; i --){
+      data[i] = data[i - 1];
+    }data[index] = element;
   }
 }

@@ -77,4 +77,13 @@ public class SuperArray{
     }data[size() - 1] = null;
     return(removed);
   }
+  public int indexOf(String s){
+    int locus = -1;
+    for(int i = 0; i < size(); i ++){
+      if(data[i].equals(s)){
+        locus = i;
+        break;
+      }
+    } return(locus);
+  }
 }

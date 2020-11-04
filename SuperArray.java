@@ -24,4 +24,12 @@ public class SuperArray{
     data[index] = element;
     return(x);
   }
+
+  private void resize(){
+    String[] newarr;
+    newarr = new String[data.length + 10];
+    for(int i = 0; i < data.length; i ++){
+      data[i] = newarr[i];
+    }data = newarr;
+  }
 }

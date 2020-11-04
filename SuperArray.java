@@ -40,4 +40,16 @@ public class SuperArray{
   public boolean isEmpty(){
     return(size() == 0);
   }
+  public void clear(){
+    data = new String[10];
+    size = 0;
+  }
+
+  public String toString(){
+    String newstr = "[";
+    for(int i = 0; i < size() - 1; i ++){
+      newstr = newstr + data[i] + ", ";
+    }newstr = newstr + data[size - 1] + "]";
+    return(newstr);
+  }
 }

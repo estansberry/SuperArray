@@ -36,4 +36,8 @@ public class SuperArray{
       newarr[i] = data[i] ;
     }data = newarr;
   }
+
+  public boolean isEmpty(){
+    return(size() == 0);
+  }
 }

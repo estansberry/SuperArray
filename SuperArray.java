@@ -46,8 +46,11 @@ public class SuperArray{
   }
 
   public String toString(){
+    if(size() == 0){
+      return("[]");
+    }
     String newstr = "[";
-    for(int i = 0; i < size() - 1; i ++){
+    for(int i = 0; i < (size() - 1); i ++){
       newstr = newstr + data[i] + ", ";
     }newstr = newstr + data[size - 1] + "]";
     return(newstr);
@@ -75,6 +78,7 @@ public class SuperArray{
     for(int i = index; i < size() - 1; i ++){
       data[i] = data[i + 1];
     }data[size() - 1] = null;
+    size -= 1;
     return(removed);
   }
   public int indexOf(String s){
@@ -85,5 +89,12 @@ public class SuperArray{
         break;
       }
     } return(locus);
+  }
+  public String[] toArray(){
+    String[] newarr;
+    newarr = new String[size];
+    for(int i = 0; i < size; i ++){
+      newarr[i] = data[i];
+    }return(newarr);
   }
 }

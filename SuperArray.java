@@ -97,4 +97,16 @@ public class SuperArray{
       newarr[i] = data[i];
     }return(newarr);
   }
+  public int lastIndexOf(String value){
+    return(value.length() - 1);
+  }
+  public boolean equals(SuperArray other){
+    Boolean equal = true;
+    for(int i = 0; i < other.size(); i ++){
+      if(other.get(i) != get(i)){
+        equal = false;
+        break;
+      }
+    }return(equal);
+  }
 }

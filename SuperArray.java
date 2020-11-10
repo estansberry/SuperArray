@@ -90,6 +90,7 @@ public class SuperArray{
       }
     } return(locus);
   }
+
   public String[] toArray(){
     String[] newarr;
     newarr = new String[size];
@@ -98,15 +99,23 @@ public class SuperArray{
     }return(newarr);
   }
   public int lastIndexOf(String value){
-    return(value.length() - 1);
-  }
-  public boolean equals(SuperArray other){
-    Boolean equal = true;
-    for(int i = 0; i < other.size(); i ++){
-      if(other.get(i) != get(i)){
-        equal = false;
+    int last = -1;
+    for(int i = size() - 1; i >= 0; i --){
+      if(data[i].equals(value)){
+        last = i;
         break;
       }
-    }return(equal);
+    }return(last);
+  }
+
+  public boolean equals(SuperArray other){
+    if(other.size() != this.size()){
+      return(false);
+    }
+    for(int i = 0; i < other.size(); i ++){
+      if(other.get(i) != this.get(i)){
+        return (false);
+      }
+    }return(true);
   }
 }

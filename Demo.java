@@ -3,9 +3,10 @@ public class Demo{
     String check = "";
     for(int i = 0; i < s.size(); i ++){
       if (check.indexOf(s.get(i)) == -1){
-        check = check + s.get(i) + " ";
+        check = check + s.get(i) + ", ";
       }else{
         s.remove(i);
+        i -= 1;
       }
     }
   }
@@ -23,13 +24,14 @@ public class Demo{
   }
   public static SuperArray findOverlap(SuperArray a, SuperArray b){
     SuperArray newarr = new SuperArray();
-    int count = 0;
     for(int i = 0; i < a.size(); i ++){
-      if (a.get(i) == b.get(i)){
-        newarr.set(count, a.get(i));
-        count += 1;
+      for(int j = 0; j < b.size(); j ++){
+        if((a.get(i)).equals(b.get(j))) {
+          newarr.add(a.get(i));
+        }
       }
-    }removeDuplicates(newarr);
+    }
+    removeDuplicates(newarr);
     return(newarr);
   }
 
@@ -38,20 +40,20 @@ public class Demo{
     if(a.size() >= b.size()){
       int j = 0;
       for(int i = 0; i < (2 * b.size()); i = i + 2){
-        newarr.set(i, a.get(j));
-        newarr.set(i + 1, b.get(j));
+        newarr.add(a.get(j));
+        newarr.add(b.get(j));
         j ++;
       } for(int i = b.size(); i < a.size(); i ++){
-        newarr.set(i, a.get(i));
+        newarr.add(a.get(i));
       }
     }if(b.size() > a.size()){
       int j = 0;
       for(int i = 0; i < (2 * a.size()); i = i + 2){
-        newarr.set(i, a.get(j));
-        newarr.set(i + 1, b.get(j));
+        newarr.add(a.get(j));
+        newarr.add(b.get(j));
         j ++;
       } for(int i = a.size(); i < b.size(); i ++){
-        newarr.set(i, b.get(i));
+        newarr.add(b.get(i));
       }
       }return(newarr);
     }

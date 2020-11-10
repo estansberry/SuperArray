@@ -69,9 +69,17 @@ public class SuperArray{
   }
   public void add(int index, String element){
     add(element);
-    for(int i = size() - 1; i >= index; i --){
+    if(size() == 0){
+      data[index] = element;
+    }else if(index == 0){
+        for(int i = size() - 1; i > 0; i --){
+          data[i] = data[i - 1];
+      }data[index] = element;
+    }else{
+      for(int i = size() - 1; i >= index; i --){
       data[i] = data[i - 1];
     }data[index] = element;
+  }
   }
   public String remove(int index){
     String removed = data[index];
